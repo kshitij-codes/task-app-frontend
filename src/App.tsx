@@ -8,20 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
 import { useUserStore } from "./zustand/userStore";
 
-const App: React.FC = () => {
-	const user = useUserStore((state) => state.user);
+type AppProps = {};
 
-	// Define a private route component that redirects to the login page if the user is not logged in
-	const PrivateRoute: React.FC<{ path: string; element: JSX.Element }> = ({
-		path,
-		element,
-	}) => {
-		if (user) {
-			return <Route path={path} element={element} />;
-		} else {
-			return <Navigate to="/login" />;
-		}
-	};
+const App: React.FC<AppProps> = () => {
+	const user = useUserStore((state) => state.user);
 
 	return (
 		<div>
@@ -29,19 +19,23 @@ const App: React.FC = () => {
 				<ToastContainer />
 				<Navbar />
 				<Routes>
-					{/* Public routes */}
-					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
-
-					{/* Private routes */}
-					<PrivateRoute path="/tasks" element={<Tasks />} />
-
-					{/* Redirect to default route when no routes match */}
-					<Route path="*" element={<Navigate to="/tasks" />} />
+					{user ? (
+						<>
+							<Route path="*" element={<Navigate to="/tasks" />} />
+							<Route path="/tasks" element={<Tasks />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+						</>
+					) : (
+						<>
+							<Route path="*" element={<Navigate to="/login" />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/register" element={<Register />} />
+						</>
+					)}
 				</Routes>
 			</BrowserRouter>
 		</div>
 	);
 };
-
 export default App;
