@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskItem from "../components/TaskItem";
 import axios, { AxiosError } from "axios";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useUserStore } from "../zustand/userStore";
 
-function Tasks() {
+const Tasks: React.FC = () => {
 	const navigate = useNavigate();
 	const [tasks, setTasks] = useState([]);
 
@@ -84,6 +84,6 @@ function Tasks() {
 			</div>
 		</>
 	);
-}
+};
 
 export default Tasks;
