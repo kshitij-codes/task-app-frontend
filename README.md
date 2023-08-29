@@ -1,5 +1,5 @@
 # Task App Frontend
-This repository contains the frontend code for the Task App application. It uses React.js + TypeScript and communicates with the backend API to manage tasks.
+This repository contains the frontend code for the Task App application. It uses React.js + TypeScript and communicates with the backend API to manage tasks and user authentication and authorization
 
 ## Installation
 To run the Task App frontend locally, follow these steps:
