@@ -17,7 +17,7 @@ To run the Task App frontend locally, follow these steps:
 ```
 4. Start the development server:
 ```
-npm run dev
+   npm run dev
 ```
 5. The Task App frontend should now be running on `http://localhost:5173`
 
@@ -42,8 +42,8 @@ The Task App frontend communicates with the backend API to perform CRUD (Create,
 The folder structure of the Task App frontend is as follows:
 
 - src: Contains the main source code
-   -- components: Contains reusable components
-   -- pages: Contains the main pages of the application
-   -- assets: Contains static assets such as images
-   -- zustand: Contains state management files
+   - components: Contains reusable components
+   - pages: Contains the main pages of the application
+   - assets: Contains static assets such as images
+   - zustand: Contains state management files
 
